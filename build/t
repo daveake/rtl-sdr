@@ -1,0 +1,1 @@
+src/rtl_fm -M usb -f 434.253M -s 192000 -r 48000 - | aplay -r 48k -f S16_LE -t raw -c 1
