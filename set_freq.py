@@ -14,14 +14,12 @@ s.connect(("localhost", 6020))
 
 frequency = sys.argv[1]
 
-buf = chr(0)
+buf = b'\x00'
 data = int(frequency)
 
-i=0
-while i < 4:
-	buf = buf + chr(data & 0xff)
+for i in range(4):
+	buf = buf + bytes([data & 0xff])
 	data = data >> 8
-	i = i + 1
 
 
 s.send(buf)
